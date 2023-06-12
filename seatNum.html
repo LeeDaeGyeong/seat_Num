@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      table {
+        display: flex;
+        justify-content: center;
+        border-collapse: collapse;
+      }
+      td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 5px;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>자리 배치도</h1>
+    <script>
+      // 입장객 수
+      let menNum = prompt("입장객은 몇 명입니까?", "");
+
+      // 한 줄에 앉을 사람 수 / 가로
+      let colNum = prompt("한 줄에는 몇 명이 앉습니까?", "");
+
+      // 줄 수 / 세로
+      let rowNum;
+
+      if (menNum % colNum === 0) {
+        rowNum = parseInt(menNum / colNum);
+      } else {
+        rowNum = parseInt(menNum / colNum) + 1;
+      }
+
+      document.write("<table>");
+      for (i = 0; i < rowNum; i++) {
+        document.write("<tr>");
+        for (j = 1; j <= colNum; j++) {
+          seatNum = i * colNum + j;
+          if (seatNum > menNum) break;
+          document.write("<td> 좌석" + seatNum + "</td>");
+        }
+        document.write("</tr>");
+      }
+      document.write("<table>");
+    </script>
+  </body>
+</html>
